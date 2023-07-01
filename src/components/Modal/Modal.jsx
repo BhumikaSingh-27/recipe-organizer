@@ -12,6 +12,8 @@ const Modal = () => {
         <label htmlFor="">Cuisine</label>
         <input type="text" placeholder="type" />
         <input type="file" />
+        <label htmlFor=""> Add Ingredients:</label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
         <button>Add</button>
       </div>
     </div>
