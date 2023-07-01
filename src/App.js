@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./page/HomePage";
+import SinglePage from "./page/SinglePage";
+import { DataContext } from "./context/DataContext";
+import { Modal } from "@mui/material";
+import { useContext } from "react";
 
 function App() {
+  const {isEdit} = useContext(DataContext)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isEdit && <Modal />}
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/recipe/:rId" element={<SinglePage />}></Route>
+      </Routes>
     </div>
   );
 }

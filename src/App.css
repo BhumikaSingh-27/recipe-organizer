@@ -32,7 +32,29 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.BTN button {
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 1rem;
+background-color: white;
+justify-self: center;
+margin-top: auto;
 }
