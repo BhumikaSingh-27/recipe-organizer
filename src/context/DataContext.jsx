@@ -8,8 +8,9 @@ export const DataContextProvider = ({ children }) => {
   let localStorageData = localStorage.getItem("recipe");
   const [recipeData, setRecipeData] = useState([]);
   const [filter, setFilter] = useState("name");
-  const [search, setSearch] = useState("")
-  const [isEdit, setIsEdit] = useState(false)
+  const [search, setSearch] = useState("");
+  const [isEdit, setIsEdit] = useState(false);
+  const [isNew, setIsNew] = useState(false);
 
   useEffect(() => {
     setRecipeData(JSON.parse(localStorageData));
@@ -23,7 +24,19 @@ export const DataContextProvider = ({ children }) => {
   };
   return (
     <DataContext.Provider
-      value={{ recipeData, setRecipeData, deleteHandler, filter, setFilter,search, setSearch }}
+      value={{
+        recipeData,
+        setRecipeData,
+        deleteHandler,
+        filter,
+        setFilter,
+        isEdit,
+        setIsEdit,
+        search,
+        isNew,
+        setIsNew,
+        setSearch,
+      }}
     >
       {children}
     </DataContext.Provider>

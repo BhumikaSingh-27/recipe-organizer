@@ -4,7 +4,7 @@ import Card from "../components/Card/Card";
 import { DataContext } from "../context/DataContext";
 
 const HomePage = () => {
-  const { recipeData, search, filter } = useContext(DataContext);
+  const { recipeData, search, filter, setIsNew } = useContext(DataContext);
 
   const searchData = (filter) => {
     if (filter === "name") {
@@ -25,7 +25,7 @@ const HomePage = () => {
   const showData = search ? searchData(filter) : [...recipeData];
   //   console.log(showData, "show");
   return (
-    <div>
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
       <Header />
       <h1>All Recipies:</h1>
       <div className="display-flex">
@@ -34,12 +34,10 @@ const HomePage = () => {
             <Card data={data} />
           </div>
         ))}
-        <div className="BTN"><button>+</button></div>
-        
-      
+        <div className="BTN">
+          <button onClick={() => setIsNew(true)}>+</button>
+        </div>
       </div>
-
-      
     </div>
   );
 };

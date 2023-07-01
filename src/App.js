@@ -3,14 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./page/HomePage";
 import SinglePage from "./page/SinglePage";
 import { DataContext } from "./context/DataContext";
-import { Modal } from "@mui/material";
+import Modal from "./components/Modal/Modal";
 import { useContext } from "react";
 
 function App() {
-  const {isEdit} = useContext(DataContext)
+  const { isEdit, isNew } = useContext(DataContext);
   return (
     <div className="App">
-      {isEdit && <Modal />}
+      {isNew && <Modal />}
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/recipe/:rId" element={<SinglePage />}></Route>
